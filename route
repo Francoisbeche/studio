@@ -1,0 +1,52 @@
+auth:
+	-POST	:	/auth/register
+	-POST	: 	/auth/login
+	-POST	: 	/auth/logout
+	-POST	: 	/auth/logoutAll
+	-DELETE	:	/auth			: must remove recursivly all user's data.
+
+user:
+	-PUT	:	/user	: Update profile (all fields are optional)
+      	-GET	:	/user : Get user's profile
+
+cart:
+	-GET	:	/cart
+   	-PUT	:	/cart/add
+	-PUT	: 	/cart/remove
+
+order:
+	-GET	:	/order	: get all past order.
+	-GET	:	/order/{id}
+	-POST	: 	/order/pre: fire before paiement
+	-POST	:	/order/confirm/success: webhook when paiement success Must give ressurce access to our user.
+	-POST	:	/order/confirm/echec: webhook when paiement fail
+
+category:
+	-GET	:	/category : get All categories info
+	-GET	:	/category/{id}: Get category info + product list
+	-DELETE	:	/category/{id}: Must delete all product linked
+	-PUT	:	/category/{id}: Update category
+
+product:
+	-GET	:	/product/{id}
+	-POST	:	/product
+	-PUT	:	/product/{id}
+	-DELETE	:	/product/{id}
+
+admin:
+	-GET	:	/admin/users : get user list
+	-GET	:	/admin/user/{id}: get user profile
+	-GET	:	/admin/user/{id}/order: get user's order
+	-GET	:	/admin/user/{id}/cart: get user's cart
+	-GET	:	/admin/stats : get divers stats from activity
+	-POST	:	/admin/email/{id}: Send e-mail to this user
+	-PUT	:	/admin/user/{id} : Update user profile
+	-DELETE	:	/admin/user/{id} : Delete user
+
+stats:
+	-GET	:	/stats/best-seller
+	-GET	:	/stats/paiement-giveup
+	-GET	:	/stats/paiement-failed
+	-GET	:	/stats/paiement-success
+	
+	
